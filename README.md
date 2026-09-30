@@ -1,128 +1,108 @@
 # Mini Security Operations Center (SOC) Lab
 
-# 
 
-# A practical, isolated Security Operations Center (SOC) laboratory designed to develop hands-on skills in network security monitoring, attack detection, log analysis, incident investigation, security hardening, and defensive security operations.
 
-# 
+A practical, isolated Security Operations Center (SOC) laboratory designed to develop hands-on skills in network security monitoring, attack detection, log analysis, incident investigation, security hardening, and defensive security operations.
 
-# The laboratory is built using VMware Workstation and a small virtualized corporate-style network consisting of Kali Linux, Ubuntu Server, and a planned Windows endpoint.
 
-# 
 
-# \---
+The laboratory is built using VMware Workstation and a small virtualized corporate-style network consisting of Kali Linux, Ubuntu Server, and a planned Windows endpoint.
 
-# 
 
-# 1\. Project Overview
 
-# 
+---
 
-# This project demonstrates the design and implementation of a small, isolated SOC environment for studying how security events can be generated, detected, investigated, documented, and mitigated in a controlled laboratory.
 
-# 
 
-# The project follows a practical defensive-security workflow:
+## 1. Project Overview
 
-# 
 
-# Lab Design
 
-# &#x20;   ↓
+This project demonstrates the design and implementation of a small, isolated SOC environment for studying how security events can be generated, detected, investigated, documented, and mitigated in a controlled laboratory.
 
-# Network Configuration
 
-# &#x20;   ↓
 
-# Baseline Establishment
+The project follows a practical defensive-security workflow:
 
-# &#x20;   ↓
 
-# Controlled Security Events
 
-# &#x20;   ↓
+Lab Design
+  ↓
+Network Configuration
+  ↓
+Baseline Establishment
+  ↓
+Controlled Security Events
+  ↓
+Detection
+  ↓
+Evidence Collection
+  ↓
+Incident Investigation
+  ↓
+Response
+  ↓
+Security Hardening
+  ↓
+Retesting
+  ↓
+Continuous Improvement
 
-# Detection
 
-# &#x20;   ↓
 
-# Evidence Collection
+The long-term goal is to expand the laboratory toward SIEM, detection engineering, threat hunting, security automation, and security-focused machine learning.
 
-# &#x20;   ↓
 
-# Incident Investigation
 
-# &#x20;   ↓
+---
 
-# Response
 
-# &#x20;   ↓
 
-# Security Hardening
+## 2. Project Objectives
 
-# &#x20;   ↓
 
-# Retesting
 
-# &#x20;   ↓
+The main objectives are to:
 
-# Continuous Improvement
 
-# 
 
-# The long-term goal is to expand the laboratory toward SIEM, detection engineering, threat hunting, security automation, and security-focused machine learning.
+- Build an isolated SOC laboratory using virtual machines.
 
-# 
+- Understand practical network segmentation.
 
-# \---
+- Establish a baseline for normal network and system activity.
 
-# 
+- Generate controlled security events inside the lab.
 
-# 2\. Project Objectives
+- Detect suspicious network and authentication activity.
 
-# 
+- Analyze network traffic and system logs.
 
-# The main objectives are to:
+- Investigate incidents using timestamps, IP addresses, ports, protocols, and authentication events.
 
-# 
+- Build incident timelines.
 
-# \* Build an isolated SOC laboratory using virtual machines.
+- Document evidence and investigation findings.
 
-# \* Understand practical network segmentation.
+- Apply security hardening measures.
 
-# \* Establish a baseline for normal network and system activity.
+- Repeat selected tests to evaluate security improvements.
 
-# \* Generate controlled security events inside the lab.
+- Develop practical SOC analyst skills.
 
-# \* Detect suspicious network and authentication activity.
+- Produce professional documentation suitable for a cybersecurity portfolio.
 
-# \* Analyze network traffic and system logs.
 
-# \* Investigate incidents using timestamps, IP addresses, ports, protocols, and authentication events.
 
-# \* Build incident timelines.
+---
 
-# \* Document evidence and investigation findings.
 
-# \* Apply security hardening measures.
 
-# \* Repeat selected tests to evaluate security improvements.
+## 3. Current Lab Architecture
 
-# \* Develop practical SOC analyst skills.
 
-# \* Produce professional documentation suitable for a cybersecurity portfolio.
 
-# 
-
-# \---
-
-# 
-
-# 3\. Current Lab Architecture
-
-# 
-
-# The current laboratory contains:
+The current laboratory contains:
 
 
 
@@ -136,579 +116,437 @@
 
 
 
-# Network Design
+### Network Design
 
-# 
 
-# VMnet8
 
-# 
+VMnet8
 
-# \* VMware NAT network.
 
-# \* Provides Internet connectivity to Kali.
 
-# \* Kali obtains its Internet-side address using DHCP.
+- VMware NAT network.
 
-# 
+- Provides Internet connectivity to Kali.
 
-# VMnet2
+- Kali obtains its Internet-side address using DHCP.
 
-# 
 
-# \* VMware Host-only network.
 
-# \* Subnet: `10.10.10.0/24`.
+VMnet2
 
-# \* DHCP disabled.
 
-# \* Used as the isolated SOC laboratory network.
 
-# 
+- VMware Host-only network.
 
-# 4\. Hardware Environment
+- Subnet: `10.10.10.0/24`.
 
-# 
+- DHCP disabled.
 
-# The laboratory is designed to operate within the available laptop resources.
+- Used as the isolated SOC laboratory network.
 
-# 
 
-# Host System
 
-# 
+## 4. SOC Workflow
 
-# \* CPU: Intel Core i7-7600U
 
-# \* Generation: 7th Gen
 
-# \* RAM: 16 GB
+The project is designed around the following SOC workflow:
 
-# \* Storage: 512 GB
 
-# \* Host OS: Windows 11
 
-# \* Hypervisor: VMware Workstation
+### Phase 1 — Lab Preparation
 
-# 
 
-# Because the host has 16 GB RAM, the laboratory is being developed incrementally rather than running many virtual machines simultaneously.
 
-# 
+- Virtualization environment
 
-# The initial environment prioritizes:
+- Network segmentation
 
-# 
+- Virtual machine deployment
 
-# 1\. Kali Linux
+- IP addressing
 
-# 2\. Ubuntu Server
+- Connectivity verification
 
-# 3\. Windows endpoint
 
-# 4\. Monitoring and logging components
 
-# 5\. SIEM components where hardware resources permit
+### Phase 2 — Baseline
 
-# 
 
-# Resource usage will be monitored as the laboratory grows.
 
-# 
+- Normal network traffic
 
-# 5\. SOC Workflow
+- Normal authentication activity
 
-# 
+- Running services
 
-# The project is designed around the following SOC workflow:
+- Open ports
 
-# 
+- System logs
 
-# Phase 1 — Lab Preparation
+- Expected user activity
 
-# 
 
-# \* Virtualization environment
 
-# \* Network segmentation
+### Phase 3 — Security Events
 
-# \* Virtual machine deployment
 
-# \* IP addressing
 
-# \* Connectivity verification
+Controlled laboratory events may include:
 
-# 
 
-# Phase 2 — Baseline
 
-# 
+- Network reconnaissance
 
-# \* Normal network traffic
+- Port scanning
 
-# \* Normal authentication activity
+- Authentication failures
 
-# \* Running services
+- Suspicious login activity
 
-# \* Open ports
+- Service enumeration
 
-# \* System logs
+- Other controlled defensive-security scenarios
 
-# \* Expected user activity
 
-# 
 
-# Phase 3 — Security Events
+All testing will be performed against laboratory systems.
 
-# 
 
-# Controlled laboratory events may include:
 
-# 
+### Phase 4 — Detection
 
-# \* Network reconnaissance
 
-# \* Port scanning
 
-# \* Authentication failures
+Evidence will be collected using tools such as:
 
-# \* Suspicious login activity
 
-# \* Service enumeration
 
-# \* Other controlled defensive-security scenarios
+- Nmap
 
-# 
+- Wireshark
 
-# All testing will be performed against laboratory systems.
+- Linux logging mechanisms
 
-# 
+- Windows Event Viewer
 
-# Phase 4 — Detection
+- tcpdump
 
-# 
+- Additional detection tools as the lab develops
 
-# Evidence will be collected using tools such as:
 
-# 
 
-# \* Nmap
+### Phase 5 — Investigation
 
-# \* Wireshark
 
-# \* Linux logging mechanisms
 
-# \* Windows Event Viewer
+Each incident will be investigated using:
 
-# \* tcpdump
 
-# \* Additional detection tools as the lab develops
 
-# 
+- Source IP
 
-# Phase 5 — Investigation
+- Destination IP
 
-# 
+- Source and destination ports
 
-# Each incident will be investigated using:
+- Protocol
 
-# 
+- Timestamp
 
-# \* Source IP
+- Authentication events
 
-# \* Destination IP
+- Service information
 
-# \* Source and destination ports
+- Network packets
 
-# \* Protocol
+- System logs
 
-# \* Timestamp
+- Other relevant indicators
 
-# \* Authentication events
 
-# \* Service information
 
-# \* Network packets
+### Phase 6 — Incident Documentation
 
-# \* System logs
 
-# \* Other relevant indicators
 
-# 
+Each significant investigation will produce:
 
-# Phase 6 — Incident Documentation
 
-# 
 
-# Each significant investigation will produce:
+- Incident summary
 
-# 
+- Timeline
 
-# \* Incident summary
+- Indicators of compromise or suspicious activity
 
-# \* Timeline
+- Evidence
 
-# \* Indicators of compromise or suspicious activity
+- Analysis
 
-# \* Evidence
+- Impact assessment
 
-# \* Analysis
+- Recommended response
 
-# \* Impact assessment
+- Lessons learned
 
-# \* Recommended response
 
-# \* Lessons learned
 
-# 
+### Phase 7 — Hardening
 
-# Phase 7 — Hardening
 
-# 
 
-# Selected security controls will be implemented and tested again to determine whether suspicious activity is reduced, detected differently, or blocked.
+Selected security controls will be implemented and tested again to determine whether suspicious activity is reduced, detected differently, or blocked.
 
-# 
 
-# \---
 
-# 
+---
 
-# 6. Tools
 
-# 
 
-# Currently Used
+## 5. Tools
 
-# 
 
-# \* VMware Workstation
 
-# \* Kali Linux
+- VMware Workstation
 
-# \* Ubuntu Server
+- Kali Linux
 
-# \* Nmap
+- Ubuntu Server
 
-# \* Wireshark
+- Nmap
 
-# \* Linux networking tools
+- Wireshark
 
-# \* Linux logging mechanisms
+- Linux networking tools
 
-# 
+- Linux logging mechanisms
 
-# Planned
+- Windows Event Viewer
 
-# 
+- tcpdump
 
-# \* Windows Event Viewer
+- SIEM platform
 
-# \* tcpdump
+- Detection rules
 
-# \* SIEM platform
+- Threat-hunting tools
 
-# \* Detection rules
+- Security automation scripts
 
-# \* Threat-hunting tools
 
-# \* Security automation scripts
 
-# 
+## 6. Repository Structure
 
-# 7. Repository Structure
 
 
+mini-security-operations-center-lab/
 
-# mini-security-operations-center-lab/
+│
 
-# │
+├── README.md
 
-# ├── README.md
+├── .gitignore
 
-# ├── .gitignore
+│
 
-# │
+├── 01-Lab-Foundation/
 
-# ├── 01-Lab-Foundation/
+│   └── architecture/
 
-# │   └── architecture/
+│
 
-# │
+├── 02-Network-Configuration/
 
-# ├── 02-Network-Configuration/
+│
 
-# │
+├── 03-Baseline/
 
-# ├── 03-Baseline/
+│
 
-# │
+├── 04-Detection-Scenarios/
 
-# ├── 04-Detection-Scenarios/
+│
 
-# │
+├── 05-Evidence/
 
-# ├── 05-Evidence/
+│
 
-# │
+├── 06-Incident-Reports/
 
-# ├── 06-Incident-Reports/
+│
 
-# │
+├── 07-Hardening/
 
-# ├── 07-Hardening/
+│
 
-# │
+├── 08-Detection-Rules/
 
-# ├── 08-Detection-Rules/
+│
 
-# │
+├── 09-Scripts/
 
-# ├── 09-Scripts/
+│
 
-# │
+├── 10-SIEM/
 
-# ├── 10-SIEM/
+│
 
-# │
+├── 11-Threat-Hunting/
 
-# ├── 11-Threat-Hunting/
+│
 
-# │
+└── 12-Project-Report/
 
-# └── 12-Project-Report/
 
-# 
 
-# Each section will be populated as the laboratory progresses.
+Each section will be populated as the laboratory progresses.
 
-# 
 
-# 8\. Project Status
 
-# 
+## 7. Evidence and Documentation
 
-# Completed
 
-# 
 
-# \* \[x] VMware laboratory environment selected
+The repository will contain sanitized and relevant project evidence, including:
 
-# \* \[x] Kali Linux configured
 
-# \* \[x] Ubuntu Server deployed
 
-# \* \[x] VMnet8 NAT network configured for Kali Internet access
+- Network diagrams
 
-# \* \[x] VMnet2 isolated Host-only network created
+- Configuration documentation
 
-# \* \[x] Kali connected to VMnet2
+- Command output where useful
 
-# \* \[x] Kali assigned static SOC IP `10.10.10.10/24`
+- Screenshots
 
-# \* \[x] Ubuntu connected to VMnet2
+- Detection results
 
-# \* \[x] Ubuntu assigned static SOC IP `10.10.10.20/24`
+- Investigation timelines
 
-# \* \[x] Ubuntu configured without a default Internet route
+- Incident reports
 
-# \* \[x] Persistent network configuration established
+- Detection rules
 
-# \* \[x] Initial network architecture established
+- Hardening results
 
-# 
 
-# In Progress
 
-# 
+Sensitive information such as credentials, private keys, tokens, and personal data will not be committed to the repository.
 
-# \* \[ ] Verify complete reboot persistence
 
-# \* \[ ] Document network baseline
 
-# \* \[ ] Document normal system activity
+---
 
-# \* \[ ] Deploy required monitored services
 
-# \* \[ ] Create first controlled detection scenario
 
-# 
+## 8. Learning Outcomes
 
-# Planned
 
-# 
 
-# \* \[ ] Windows endpoint
+By completing this project, the objective is to develop practical understanding of:
 
-# \* \[ ] Authentication monitoring
 
-# \* \[ ] Network reconnaissance detection
 
-# \* \[ ] Incident investigation workflow
+- Networking
 
-# \* \[ ] Incident reports
+- Linux administration
 
-# \* \[ ] Security hardening
+- Windows security monitoring
 
-# \* \[ ] Detection rules
+- Network traffic analysis
 
-# \* \[ ] SIEM integration
+- Log analysis
 
-# \* \[ ] Threat hunting
+- Detection engineering
 
-# \* \[ ] Security automation
+- Incident response
 
-# \* \[ ] Advanced SOC capabilities
+- Threat hunting
 
-# 
+- Security hardening
 
-# \---
+- SIEM concepts
 
-# 
+- Security automation
 
-# 9\. Evidence and Documentation
+- SOC operational workflows
 
-# 
 
-# The repository will contain sanitized and relevant project evidence, including:
 
-# 
+---
 
-# \* Network diagrams
 
-# \* Configuration documentation
 
-# \* Command output where useful
+## 9. Project Philosophy
 
-# \* Screenshots
 
-# \* Detection results
 
-# \* Investigation timelines
+This project focuses on understanding the complete defensive-security process rather than simply running security tools.
 
-# \* Incident reports
 
-# \* Detection rules
 
-# \* Hardening results
+The key question for each exercise is:
 
-# 
 
-# Sensitive information such as credentials, private keys, tokens, and personal data will not be committed to the repository.
 
-# 
+> What happened, how do we know it happened, how can we detect it, how should we investigate it, and how can we improve the environment afterward?
 
-# \---
 
 
+The project therefore emphasizes evidence-based investigation, documentation, repeatable procedures, and measurable improvements.
 
-# 10\. Learning Outcomes
 
-# 
 
-# By completing this project, the objective is to develop practical understanding of:
+---
 
-# 
 
-# \* Networking
 
-# \* Linux administration
+## 10. Disclaimer
 
-# \* Windows security monitoring
 
-# \* Network traffic analysis
 
-# \* Log analysis
+This laboratory is designed for authorized cybersecurity education and defensive-security practice.
 
-# \* Detection engineering
 
-# \* Incident response
 
-# \* Threat hunting
+All security testing will be performed against systems intentionally created and controlled for this laboratory.
 
-# \* Security hardening
 
-# \* SIEM concepts
 
-# \* Security automation
+No unauthorized systems or networks are targeted.
 
-# \* SOC operational workflows
 
-# 
 
-# \---
+---
 
-# 
 
-# 11\. Project Philosophy
 
-# 
+## 11. Author
 
-# This project focuses on understanding the complete defensive-security process rather than simply running security tools.
 
-# 
 
-# The key question for each exercise is:
+Abdul Basith
 
-# 
 
-# > What happened, how do we know it happened, how can we detect it, how should we investigate it, and how can we improve the environment afterward?
 
-# 
+Cybersecurity / SOC Learning Project
 
-# The project therefore emphasizes evidence-based investigation, documentation, repeatable procedures, and measurable improvements.
 
-# 
 
-# \---
+This repository documents the development of the laboratory, practical exercises, investigations, detection work, and lessons learned throughout the project.
 
-# 
 
-# 12\. Disclaimer
 
-# 
+---
 
-# This laboratory is designed for authorized cybersecurity education and defensive-security practice.
 
-# 
 
-# All security testing will be performed against systems intentionally created and controlled for this laboratory.
+## License
 
-# 
 
-# No unauthorized systems or networks are targeted.
 
-# 
-
-# \---
-
-# 
-
-# 13\. Author
-
-# 
-
-# Abdul Basith
-
-# 
-
-# Cybersecurity / SOC Learning Project
-
-# 
-
-# This repository documents the development of the laboratory, practical exercises, investigations, detection work, and lessons learned throughout the project.
-
-# 
-
-# \---
-
-# 
-
-# License
-
-# 
-
-# This project is intended primarily as an educational cybersecurity portfolio and laboratory documentation project.
+This project is intended primarily as an educational cybersecurity portfolio and laboratory documentation project.
 
 
 
