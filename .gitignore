@@ -1,0 +1,53 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Packet captures
+*.pcap
+*.pcapng
+
+# Virtual machines
+*.vmdk
+*.vdi
+*.vhd
+*.vhdx
+*.ova
+*.ovf
+*.vmem
+*.vmss
+*.nvram
+*.lck/
+
+# Credentials and secrets
+.env
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+
+# Local configuration
+*.local
+secrets/
+credentials/
+
+# Generated backups
+*.bak
